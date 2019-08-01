@@ -1,13 +1,13 @@
 .image {
   float: left;
   margin-right: -1px;
-  margin-top: -1px;  
+  margin-top: -1px;
   background-size: cover;
   padding: 0;
   text-align: center;
   background-position: 50%;
-  height: 130px;
-  width: 130px;
+  height: 245px;
+  width: 245px;
   margin: 8px 25px;
   border: 5px solid #f1f1f1;
   border-radius: 3px;
@@ -23,7 +23,7 @@ div {
  content: "";
   display: table;
 }
-.game {
+.board {
   position: absolute;
   top: 50%;
   left: 50%;

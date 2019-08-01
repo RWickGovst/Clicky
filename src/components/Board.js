@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Image from "./Image";
 import data from "../data.json";
 import Nav from "./Nav";
-import Footer from "./Footer";
+//import Footer from "./Footer";
 // import { isTSExpressionWithTypeArguments } from "@babel/types";
 
 class Board extends Component {
@@ -17,16 +17,6 @@ class Board extends Component {
     this.setState({ data: data });
   }
   shuffleData = data => {
-    // let i = data.length - 1;
-    // while(i>0){
-    //     const randomVal = Math.floor(Math.random()*(i+1));
-    //     const temp = data[randomVal];
-    //     data[i] = data[randomVal];
-    //     data[randomVal]= temp;
-    //     i--;
-    // }
-    // return data;
-    // var shuffleData = function (data) {
 
     var currentIndex = data.length;
     var temporaryValue, randomIndex;
@@ -58,7 +48,7 @@ class Board extends Component {
 
   handleImageClick = id => {
     if (this.state.beenClicked.includes(id)) {
-      //lose
+      alert("You lost!")
       this.newGame()
       
     } else {
@@ -119,27 +109,14 @@ class Board extends Component {
             <Image
               id={oneImage.id}
               key={oneImage.id}
-              handleClick={oneImage.handleImageClick}
+              handleClick={this.handleImageClick}
               image={oneImage.image}
             />
           ))
         ) : (
           <h1>No data to display</h1>
         )}
-
-        {/* <Image
-                    // key={item.id}
-                    
-
-                // key ={item.id}
-                id={this.state.data[0].id}
-                handleClick = {this.handleImageClick}
-                image = {this.state.data[0].image}
-            
-            /> */}
-
-        <Footer />
-      </div>
+            </div>  
     );
   }
 }
