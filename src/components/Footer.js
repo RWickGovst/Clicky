@@ -1,32 +1,17 @@
-import React from 'react';
-import { Nav, NavItem } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
-function Footer(/*props*/) {
-  return (
-    <footer>
-      
-        <Nav justified>
-          <NavItem
-            eventKey={1}>
-            Privacy policy
-          </NavItem>
-          <NavItem
-            eventKey={2}
-            title="Item">
-            Hola
-          </NavItem>
-          <NavItem
-            eventKey={3}>
-            Clicky Game
-          </NavItem>
-        </Nav>
-
-        <div className="text-center small copyright">
-          © RJW 2019
-        </div>
-      
-    </footer>
-  );
+class Footer extends Component {
+  render() {
+    return (
+        <Container>
+            <Row>
+          <Col xs="8">Clicky</Col>
+          <Col xs="2">{'score'}</Col>
+          <Col xs="2">{'topScore'}</Col>
+        </Row>
+        </Container>
+    )
+  }
 }
-
 export default Footer;
