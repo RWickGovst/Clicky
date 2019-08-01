@@ -1,33 +1,78 @@
 import React, { Component } from 'react';
-import Square from './Square';
+import Image from './Image';
+import data from "../data.json";
 
 class Board extends Component {
-    renderSquare(i){
-        return <Square value={this.props.squares[i]}
-            onClick={()=>this.props.onClick(i)}
-        />
+    state = {
+        data,
+        score: 0,
+        topScore: 0
+    }
+    componentDidMount(){
+        this.setState({data: this.shuffleData(this.state.data)});
+    }
+    shuffleData = data => {
+        let i = data.length - 1;
+        while(i>0){
+            const randomVal = Math.floor(Math.random()*(i+1));
+            const temp = data[randomVal];
+            data[i] = data[randomVal];
+            data[randomVal]= temp;
+            i--;
+        }
+        return data;
+    }
+    
+        handleImageClick = id => {
+            let guessedCorrect = false;
+            const newData = this.state.data.map(item => {
+                const newItem = {...item};
+                if(newItem.id === id){
+                    if(!newItem.clicked){
+                        newItem.clicked = true;
+                        guessedCorrect =true;
+                    }
+                }
+                return newItem;
+            });
+            guessedCorrect ? this.handleCorrectFunction(newData) : this.handleInCorrectFunction(newData)
+        }
+        handleCorrectFunction = newData => {
+            const {topScore, score} = this.state;
+            const newScore = score+1;
+            const newTopScore = newScore > topScore ? newScore : topScore;
+            this.setState({
+                data: this.shuffleData(newData),
+                score: newScore,
+                topScore: newTopScore
+            })
+        }
+        handleCorrectFunction = newData => {
+            this.setState({
+                data: this.reStart(data),
+                score:0
+            })
+        }
+        reStart = data => {
+            const resetData = data.map(item => ({ ...item, clicked:false}));
+            return this.shuffleData(resetData);
         }
     render() {
         return (
         <div>
-            <div className="border-row">
-                {this.renderSquare(0)}
-                {this.renderSquare(1)}
-                {this.renderSquare(2)}
-                {this.renderSquare(3)}
-            </div>
-            <div className="border-row">
-                {this.renderSquare(4)}
-                {this.renderSquare(5)}
-                {this.renderSquare(6)}
-                {this.renderSquare(7)}
-            </div>
-            <div className="border-row">
-                {this.renderSquare(8)}
-                {this.renderSquare(9)}
-                {this.renderSquare(10)}
-                {this.renderSquare(11)}
-            </div>
+            <Nav score ={this.state.score}/> 
+            {this.state.data.map(item => (
+                <Image key ={item.id}
+                id={item.id}
+                handleClick = {this.handleImageClick}
+                image = {item.image}
+                />
+
+            )
+
+            )}
+            <Footer />
+            
         </div>
         );
     }

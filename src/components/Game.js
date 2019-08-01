@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 
-export class Game extends Component {
+export default class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +12,21 @@ export class Game extends Component {
             ]
         }  
     }
+    handleClick(i){
+
+        const history = this.state.history.slice(0,this.state.stepNumber+1);
+        const current = history[history.length-1];
+        const squares = current.squares.slice();
+        squares[i] = this.state;
+        this.setState({
+            history: history.concat({
+                squares: squares
+            }),
+            isNext: this.state,
+            stepNumber: history.length
+        });
+    }
+
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -25,4 +40,3 @@ export class Game extends Component {
         );
     }
 }
-export default Game;
