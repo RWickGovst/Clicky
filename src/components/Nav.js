@@ -6,9 +6,9 @@ class Nav extends Component {
     return (
         <Container>
             <Row>
-          <Col xs="3">Clicky</Col>
-          <Col xs="auto">{'score'}</Col>
-          <Col xs="3">{'topScore'}</Col>
+          <Col xs="8">Clicky</Col>
+          <Col xs="2">{'score'}</Col>
+          <Col xs="2">{'topScore'}</Col>
         </Row>
         </Container>
     )
