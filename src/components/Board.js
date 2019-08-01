@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Image from './Image';
-import data from "../data.json";
+import data from '../data.json';
+import Nav from './Nav';
+import Footer from './Footer';
 
 class Board extends Component {
     state = {
@@ -47,7 +49,7 @@ class Board extends Component {
                 topScore: newTopScore
             })
         }
-        handleCorrectFunction = newData => {
+        handleIncorrectFunction = newData => {
             this.setState({
                 data: this.reStart(data),
                 score:0
@@ -60,22 +62,25 @@ class Board extends Component {
     render() {
         return (
         <div>
-            <Nav score ={this.state.score}/> 
-            {this.state.data.map(item => (
+            <Nav score ={this.state.score}
+            topScore={this.state.topScore}/> 
+        
+            <Board {this.state.data.map(item => (
                 <Image key ={item.id}
                 id={item.id}
                 handleClick = {this.handleImageClick}
                 image = {item.image}
                 />
-
-            )
-
+                )
+                
             )}
-            <Footer />
-            
+            />
+        
+            <Footer /> 
         </div>
-        );
-    }
+        
+        )
+            }
 }
 
 export default Board;

@@ -1,61 +1,61 @@
 [{
     "id": 0,
-    "image": "",
+    "image": "./images/car1.png",
     "clicked": false
 },
 {
     "id": 1,
-    "image": "",
+    "image": "./images/car2.png",
     "clicked": false
 },
 {
     "id": 2,
-    "image": "",
+    "image": "./images/car3.png",
     "clicked": false
 },
 {
     "id": 3,
-    "image": "",
+    "image": "./images/car4.png",
     "clicked": false
 },
 {
     "id": 4,
-    "image": "",
+    "image": "./images/car5.png",
     "clicked": false
 },
 {
     "id": 5,
-    "image": "",
+    "image": "./images/car6.png",
     "clicked": false
 },
 {
     "id": 6,
-    "image": "",
+    "image": "./images/car7.png",
     "clicked": false
 },
 {
     "id": 7,
-    "image": "",
+    "image": "./images/car8.png",
     "clicked": false
 },
 {
     "id": 8,
-    "image": "",
+    "image": "./images/car9.png",
     "clicked": false
 },
 {
     "id": 9,
-    "image": "",
+    "image": "./images/car10.png",
     "clicked": false
 },
 {
     "id": 10,
-    "image": "",
+    "image": "./images/car11.png",
     "clicked": false
 },
 {
     "id": 11,
-    "image": "",
+    "image": "./images/car12.png",
     "clicked": false
 }
 ]
