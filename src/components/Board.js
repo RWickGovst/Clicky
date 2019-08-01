@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Image from './Image';
+// import Image from './Image';
 import data from '../data.json';
 import Nav from './Nav';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 class Board extends Component {
     state = {
@@ -61,26 +61,23 @@ class Board extends Component {
         }
     render() {
         return (
-        <div>
-            <Nav score ={this.state.score}
-            topScore={this.state.topScore}/> 
-        
-            <Board {this.state.data.map(item => (
-                <Image key ={item.id}
-                id={item.id}
-                handleClick = {this.handleImageClick}
-                image = {item.image}
-                />
-                )
-                
-            )}
-            />
-        
-            <Footer /> 
-        </div>
-        
+            <Nav /> 
+            // score ={this.state.score}
+            // topScore={this.state.topScore}
+            // <Board />
+
+            // state ={this.state.data.map(item)} => (
+            // <Image />
+                // key ={item.id}
+                // id={item.id}
+                // handleClick = {this.handleImageClick}
+                // image = {item.image}
+            
+            // <Footer /> 
         )
-            }
-}
+    }
+            
+}    
+
 
 export default Board;
