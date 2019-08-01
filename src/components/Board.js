@@ -59,20 +59,7 @@ class Board extends Component {
         beenClicked: temp
       });
     }
-    // let guessedCorrect = false;
-    // const newData = this.state.data.map(item => {
-    //     const newItem = {...item};
-    //     if(newItem.id === id){
-    //         if(!newItem.clicked){
-    //             newItem.clicked = true;
-    //             guessedCorrect =true;
-    //         }
-    //     }
-    //     return newItem;
-    // });
-    // guessedCorrect
-    //   ? this.handleCorrectFunction(newData)
-    //   : this.handleInCorrectFunction(newData);
+    
   };
   handleCorrectFunction = newData => {
     const { topScore, score } = this.state;
@@ -99,11 +86,11 @@ class Board extends Component {
     return (
       <div>
         <Nav />
-        {/* score ={this.state.score} */}
-        {/* topScore={this.state.topScore} */}
-        {/* <Board /> */}
+        {/* {score ={this.state.score}} */}
+        {/* {topScore={this.state.topScore}} */}
+        {/* {<Board />} */}
 
-        {/* state = this.state.data.map(item) => { */}
+        {/* {state = this.state.data.map(item) => { */}
         {this.state.data ? (
           this.state.data.map(oneImage => (
             <Image
